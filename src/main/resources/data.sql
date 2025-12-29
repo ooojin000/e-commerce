@@ -1,0 +1,28 @@
+
+
+INSERT INTO product (name, price, stock, created_at, updated_at) VALUES
+                                                                              ('무지 티셔츠', 12900, 50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('데님 팬츠', 39900, 25, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('운동화', 79000, 18, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('캔버스 스니커즈', 49000, 40, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('후드 집업', 59000, 12, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('패딩 점퍼', 129000, 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('롱 코트', 159000, 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('양말 5팩', 9900, 120, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('볼캡', 19000, 30, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('비니', 15000, 22, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('가죽 벨트', 27000, 15, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('백팩', 69000, 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('에코백', 12000, 55, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('선글라스', 45000, 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('머플러', 25000, 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('장갑', 18000, 35, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('니트 스웨터', 52000, 14, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('셔츠', 33000, 28, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('슬랙스', 48000, 19, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('트레이닝 팬츠', 32000, 26, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('레깅스', 29000, 33, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('바람막이', 87000, 11, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('맨투맨', 41000, 24, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('롱 슬리브', 22000, 60, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+                                                                              ('카라 티셔츠', 36000, 16, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
