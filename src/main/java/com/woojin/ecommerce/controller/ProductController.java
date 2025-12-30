@@ -1,5 +1,6 @@
 package com.woojin.ecommerce.controller;
 
+import com.woojin.ecommerce.common.response.BaseResponse;
 import com.woojin.ecommerce.dto.ProductListResponse;
 import com.woojin.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/api/products")
-    public Page<ProductListResponse> getProductList(Pageable pageable) {
-        return productService.getProductList(pageable);
+    public BaseResponse<Page<ProductListResponse>> getProductList(Pageable pageable) {
+        return BaseResponse.ok(productService.getProductList(pageable));
     }
 }

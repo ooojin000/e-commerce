@@ -5,7 +5,6 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -44,5 +43,13 @@ public class Order {
         if (status == OrderStatus.CANCELED) return;
         this.status = OrderStatus.CANCELED;
         this.canceledAt = LocalDateTime.now();
+    }
+
+    public Order(Product product, Long userId, Integer quantity) {
+        this.product = product;
+        this.userId = userId;
+        this.quantity = quantity;
+        this.status = OrderStatus.ORDERED;
+        this.createdAt = LocalDateTime.now();
     }
 }
