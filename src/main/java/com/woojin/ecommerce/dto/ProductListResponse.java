@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 public class ProductListResponse {
     private Long id;
     private String name;
-    private int price;
-    private int stock;
+    private Integer price;
+    private Integer stock;
 
     public static ProductListResponse from(Product p) {
         return new ProductListResponse(
