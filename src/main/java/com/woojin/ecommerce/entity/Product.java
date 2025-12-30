@@ -1,5 +1,7 @@
 package com.woojin.ecommerce.entity;
 
+import com.woojin.ecommerce.common.exception.InvalidQuantityException;
+import com.woojin.ecommerce.common.exception.OutOfStockException;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -37,4 +39,14 @@ public class Product {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public void decreaseStock(int quantity) {
+        if (quantity <= 0) {
+            throw new InvalidQuantityException();
+        }
+        if (this.stock < quantity) {
+            throw new OutOfStockException();
+        }
+        this.stock -= quantity;
+    }
 }
