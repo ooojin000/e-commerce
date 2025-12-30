@@ -29,4 +29,13 @@ public class OrderController {
             Pageable pageable) {
         return BaseResponse.ok(orderService.getOrderList(userId, pageable));
     }
+
+    @PatchMapping("/orders/{orderId}/cancel")
+    public BaseResponse<Void> cancelOrder(
+            @PathVariable Long orderId,
+            @RequestHeader("USER-ID") Long userId
+    ) {
+        orderService.cancelOrder(orderId, userId);
+        return BaseResponse.ok(null);
+    }
 }

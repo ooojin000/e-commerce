@@ -1,10 +1,14 @@
 package com.woojin.ecommerce.service;
 
+import com.woojin.ecommerce.common.exception.OrderAccessDeniedException;
+import com.woojin.ecommerce.common.exception.OrderAlreadyCanceledException;
+import com.woojin.ecommerce.common.exception.OrderNotFoundException;
 import com.woojin.ecommerce.common.exception.ProductNotFoundException;
 import com.woojin.ecommerce.dto.CreateOrderRequest;
 import com.woojin.ecommerce.dto.CreateOrderResponse;
 import com.woojin.ecommerce.dto.OrderListResponse;
 import com.woojin.ecommerce.entity.Order;
+import com.woojin.ecommerce.entity.OrderStatus;
 import com.woojin.ecommerce.entity.Product;
 import com.woojin.ecommerce.repository.OrderRepository;
 import com.woojin.ecommerce.repository.ProductRepository;
@@ -33,6 +37,27 @@ public class OrderService {
     public Page<OrderListResponse> getOrderList(Long userId, Pageable pageable) {
         return orderRepository.findByUserId(userId, pageable)
                 .map(OrderListResponse::from);
+    }
+
+    @Transactional
+    public void cancelOrder(Long orderId, Long userId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(OrderNotFoundException::new);
+
+        if (!order.getUserId().equals(userId)) {
+            throw new OrderAccessDeniedException();
+        }
+
+        if (order.getStatus() == OrderStatus.CANCELED) {
+            throw new OrderAlreadyCanceledException();
+        }
+
+        Long productId = order.getProduct().getId();
+        Product product = productRepository.findById(productId)
+                .orElseThrow(ProductNotFoundException::new);
+
+        product.increaseStock(order.getQuantity());
+        order.cancel();
     }
 
     private Product getValidProduct(Long productId) {

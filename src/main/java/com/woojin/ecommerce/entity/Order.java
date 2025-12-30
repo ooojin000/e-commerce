@@ -1,5 +1,6 @@
 package com.woojin.ecommerce.entity;
 
+import com.woojin.ecommerce.common.exception.OrderAlreadyCanceledException;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -43,7 +44,9 @@ public class Order {
     private LocalDateTime canceledAt;
 
     public void cancel() {
-        if (status == OrderStatus.CANCELED) return;
+        if (status == OrderStatus.CANCELED) {
+            throw new OrderAlreadyCanceledException();
+        };
         this.status = OrderStatus.CANCELED;
         this.canceledAt = LocalDateTime.now();
     }
